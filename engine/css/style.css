@@ -1,0 +1,76 @@
+body {
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+ 		min-height: 100%;
+}
+
+	.bg {
+		background: url("./images/body.jpg") no-repeat center center fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+}
+
+.mainPage a:hover h1 {
+	color: #AA0000;
+}
+
+blockquote,
+html {
+	overflow-y: scroll;
+	font-size: 100%;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+img {
+	border: 0;
+	-ms-interpolation-mode: bicubic;
+}
+
+textarea {
+	font-size: 100%;
+	overflow: auto;
+	vertical-align: top;
+}
+
+/* Reset non-text input types */
+input[type="checkbox"],
+input[type="radio"],
+input[type="file"],
+input[type="hidden"],
+input[type="image"],
+input[type="color"] {
+	border: 0;
+	border-radius: 0;
+	padding: 0;
+}
+
+#main {
+	background-color: #FFFFFF88;
+	color: #000000;
+	padding: 5px;
+}
+
+
+#summaries {
+	background-color: #FFFFFF88;
+	color: #000000;
+}
+
+#main h1 {
+	font-size: 2rem;
+}
+
+#main h2 {
+	font-size: 1.8rem;
+}
+
+#main h3 {
+	font-size: 1.5rem;
+}
+
+.postSummary {
+	margin: 5px 5px 40px 5px;
+	padding: 5px;
+}
