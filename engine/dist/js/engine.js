@@ -1,4 +1,4 @@
-/// <reference path="../../../node_modules/@types/showdown/index.d.ts" />
+/// <reference path="../../../../node_modules/@types/showdown/index.d.ts" />
 var Niluar;
 (function (Niluar) {
     var Cms;
@@ -49,12 +49,20 @@ var Niluar;
                 });
                 // TODO sort by date DESC
             }
-            // fetchPages(): Promise<void> {
-            //     return fetch(REPO + "/content/posts/").then(result => {
-            //         // TODO get directory and fetch md pages : https://developer.github.com/v3/repos/contents/
-            //     });
-            // }
             fetchPages() {
+                return fetch("https://api.github.com/repos/marineRaulinDufour/MarineRaulinDufour.github.io/contents/content/posts/")
+                    .then(result => result.json())
+                    .then((results) => {
+                    results = results.filter(r => r.name.indexOf(".md") != -1);
+                    return Promise.all(results.map(r => fetch(r.download_url).then((result) => {
+                        return result.text().then(text => {
+                            r.content = text;
+                            return r;
+                        });
+                    })));
+                });
+            }
+            fetchPagesMock() {
                 const p = new Promise((resolve, reject) => {
                     resolve([{
                             "name": "Ateliers_enfants.md",
@@ -165,7 +173,7 @@ Travail de la terre, du papier, du sable
                 this.postEngine.drawPostListPage(0);
             }
             initPost() {
-                let name = document.URL.substr(document.URL.indexOf('#') + 1);
+                let name = decodeURI(document.URL.substr(document.URL.indexOf('#') + 1));
                 document.head.title = BLOG_NAME + " - " + name;
                 document.getElementById("main");
                 this.postEngine.drawPost(name);

@@ -1,4 +1,4 @@
-/// <reference path="../../../node_modules/@types/showdown/index.d.ts" />
+/// <reference path="../../../../node_modules/@types/showdown/index.d.ts" />
 
 namespace Niluar.Cms {
     var SUMMARY_LENGTH: number = 40000;
@@ -47,8 +47,11 @@ namespace Niluar.Cms {
 
     interface ghFile {
         name: string;
-        content: string;
+        url?: string;
+        download_url?: string;
+        content?: string;
     }
+
 
     class PostEngine {
         items: Post[];
@@ -66,15 +69,24 @@ namespace Niluar.Cms {
             // TODO sort by date DESC
         }
 
-        // fetchPages(): Promise<void> {
-        //     return fetch(REPO + "/content/posts/").then(result => {
-        //         // TODO get directory and fetch md pages : https://developer.github.com/v3/repos/contents/
-        //     });
-        // }
-
-
-
         fetchPages(): Promise<ghFile[]> {
+            return fetch("https://api.github.com/repos/marineRaulinDufour/MarineRaulinDufour.github.io/contents/content/posts/")
+                .then(result => result.json())
+                .then((results: ghFile[]) => {
+                    results = results.filter(r => r.name.indexOf(".md") != -1);
+                    return Promise.all(results.map(r => fetch(r.download_url).then((result) => {
+                        return result.text().then(text => {
+                            r.content = text;
+                            return r;
+                        })
+                    })
+                    ));
+                });
+        }
+
+
+
+        fetchPagesMock(): Promise<ghFile[]> {
             const p = new Promise<ghFile[]>((resolve, reject): void => {
                 resolve([{
                     "name": "Ateliers_enfants.md",
@@ -180,7 +192,7 @@ Travail de la terre, du papier, du sable
             this.postEngine.init().then(() => {
                 if (document.URL.indexOf("atelierMenu.html") != -1)
                     this.initMenu();
-                else if (document.URL.indexOf("atelier.html")  != -1)
+                else if (document.URL.indexOf("atelier.html") != -1)
                     this.initPost();
             });
         }
@@ -194,7 +206,7 @@ Travail de la terre, du papier, du sable
         }
 
         initPost(): void {
-            let name = document.URL.substr(document.URL.indexOf('#') + 1);
+            let name = decodeURI(document.URL.substr(document.URL.indexOf('#') + 1));
             document.head.title = BLOG_NAME + " - " + name;
             document.getElementById("main");
             this.postEngine.drawPost(name);
