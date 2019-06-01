@@ -11,8 +11,6 @@ A travers des ateliers artistiques et scientifiques les enfants vont créer comm
 ## Atelier des Artistes
 
 Créer des projets artistiques en s’inspirant d’artiste. Engager de nouveaux moyens d’expression à travers de nouveaux mediums et découvrir de nouvelle façon de les utiliser de la peinture au pistolet de Niki Saint Phalle au photomontage d’Hanna Hoch. 
-
-![Image design culinaire](./images/design_culinaire.jpg)
  
 ## Création livre « Ou suis-je ? »
 
