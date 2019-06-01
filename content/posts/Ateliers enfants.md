@@ -6,7 +6,7 @@ L’atelier est une nouvelle expérience créative à travers un cour de cuisine
  
 ## De la magie dans l’art
 
-A travers des ateliers artistiques et scientifiques les enfants vont créer comme par magie. (popups, l’ardoise magique… )
+A travers des ateliers artistiques et scientifiques les enfants vont créer comme par magie. (pop-ups, l’ardoise magique… )
 
 ## Atelier des Artistes
 

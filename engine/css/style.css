@@ -11,7 +11,17 @@ body {
 		background-size: cover;
 }
 
-.mainPage a:hover h1 {
+a:hover h1 {
+	color: #AA0000;
+}
+
+
+#menu  {
+	font-size: 2em;
+	text-align: center;
+}
+
+#menu a:hover {
 	color: #AA0000;
 }
 
