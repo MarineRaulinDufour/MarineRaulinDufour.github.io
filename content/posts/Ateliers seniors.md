@@ -25,4 +25,4 @@ Art de la table
 
 Travail de la terre, du papier, du sable 
 
-          * Sur demande les ateliers peuvent être ajustés
+- Sur demande les ateliers peuvent être ajustés
