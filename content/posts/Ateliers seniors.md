@@ -1,8 +1,3 @@
----
-title: Ateliers seniors
-date: 2019-05-26 11:06:44
-tags:
----
 # Ateliers seniors
 ## L'Atelier des Artistes
 ### 1h00+2h00

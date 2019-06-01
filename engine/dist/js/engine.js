@@ -1,4 +1,12 @@
 /// <reference path="../../../../node_modules/@types/showdown/index.d.ts" />
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var Niluar;
 (function (Niluar) {
     var Cms;
@@ -30,9 +38,12 @@ var Niluar;
             }
             buildContent() {
                 this.htmlContent = document.createElement("div");
-                let content = this.content;
+                let content = this.content.replace(/\.\/images\//g, "https://marineraulindufour.github.io/content/posts/images/");
                 content = this.showdownConverter.makeHtml(content);
                 this.htmlContent.innerHTML = content;
+                this.htmlContent.querySelectorAll("img").forEach(img => {
+                    img.parentElement.style.textAlign = "center";
+                });
             }
         }
         class PostEngine {
@@ -40,26 +51,30 @@ var Niluar;
                 this.items = [];
             }
             init() {
-                return this.fetchPages().then((files) => {
-                    files.forEach(file => {
-                        let item = new Post(file.name, file.content);
-                        item.build();
-                        this.items.push(item);
+                return __awaiter(this, void 0, void 0, function* () {
+                    return this.fetchPages().then((files) => {
+                        files.forEach(file => {
+                            let item = new Post(file.name, file.content);
+                            item.build();
+                            this.items.push(item);
+                        });
                     });
+                    // TODO sort by date DESC
                 });
-                // TODO sort by date DESC
             }
             fetchPages() {
-                return fetch("https://api.github.com/repos/marineRaulinDufour/MarineRaulinDufour.github.io/contents/content/posts/")
-                    .then(result => result.json())
-                    .then((results) => {
-                    results = results.filter(r => r.name.indexOf(".md") != -1);
-                    return Promise.all(results.map(r => fetch(r.download_url).then((result) => {
-                        return result.text().then(text => {
-                            r.content = text;
-                            return r;
-                        });
-                    })));
+                return __awaiter(this, void 0, void 0, function* () {
+                    return fetch("https://api.github.com/repos/marineRaulinDufour/MarineRaulinDufour.github.io/contents/content/posts/")
+                        .then(result => result.json())
+                        .then((results) => {
+                        results = results.filter(r => r.name.indexOf(".md") != -1);
+                        return Promise.all(results.map(r => fetch(r.download_url).then((result) => {
+                            return result.text().then(text => {
+                                r.content = text;
+                                return r;
+                            });
+                        })));
+                    });
                 });
             }
             fetchPagesMock() {

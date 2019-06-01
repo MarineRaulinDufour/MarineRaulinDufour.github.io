@@ -39,9 +39,12 @@ namespace Niluar.Cms {
 
         buildContent(): any {
             this.htmlContent = <HTMLDivElement>document.createElement("div");
-            let content: string = this.content;
+            let content: string = this.content.replace(/\.\/images\//g, "https://marineraulindufour.github.io/content/posts/images/");
             content = this.showdownConverter.makeHtml(content);
             this.htmlContent.innerHTML = content;
+            this.htmlContent.querySelectorAll("img").forEach(img => {
+                img.parentElement.style.textAlign = "center";
+            });
         }
     }
 
@@ -58,7 +61,8 @@ namespace Niluar.Cms {
         constructor() {
             this.items = [];
         }
-        init(): Promise<void> {
+
+        async init(): Promise<void> {
             return this.fetchPages().then((files: ghFile[]) => {
                 files.forEach(file => {
                     let item = new Post(file.name, file.content);
@@ -69,7 +73,7 @@ namespace Niluar.Cms {
             // TODO sort by date DESC
         }
 
-        fetchPages(): Promise<ghFile[]> {
+        async fetchPages(): Promise<ghFile[]> {
             return fetch("https://api.github.com/repos/marineRaulinDufour/MarineRaulinDufour.github.io/contents/content/posts/")
                 .then(result => result.json())
                 .then((results: ghFile[]) => {

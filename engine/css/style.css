@@ -49,7 +49,8 @@ input[type="color"] {
 #main {
 	background-color: #FFFFFF88;
 	color: #000000;
-	padding: 5px;
+	padding: 50px;
+	font-family: "Open Sans";
 }
 
 
@@ -74,3 +75,9 @@ input[type="color"] {
 	margin: 5px 5px 40px 5px;
 	padding: 5px;
 }
+
+@media only screen and (max-width: 600px) {
+	#main {
+	  padding: 5px;
+	}
+  }

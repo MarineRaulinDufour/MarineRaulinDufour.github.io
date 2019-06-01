@@ -1,8 +1,3 @@
----
-date: 2019-04-07 11:06:44
-tags:
----
-
 # Ateliers enfants
 
 ## Design Culinaire
