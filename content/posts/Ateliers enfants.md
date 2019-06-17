@@ -3,6 +3,10 @@
 ## Design Culinaire
 
 L’atelier est une nouvelle expérience créative à travers un cour de cuisine original. Des sculptures de riz à la tasse en cookies... 
+![alt text](./images/design_culinaire.jpg "Design culinaire 1")
+![alt text](./images/design_culinaire.jpg "Design culinaire 2")
+![alt text](./images/design_culinaire.jpg "Design culinaire 3")
+
  
 ## De la magie dans l’art
 
