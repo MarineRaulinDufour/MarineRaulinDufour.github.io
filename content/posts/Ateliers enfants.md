@@ -3,7 +3,7 @@
 ## Design Culinaire
 
 L’atelier est une nouvelle expérience créative à travers un cour de cuisine original. Des sculptures de riz à la tasse en cookies... 
- 
+
 ## De la magie dans l’art
 
 A travers des ateliers artistiques et scientifiques les enfants vont créer comme par magie. (pop-ups, l’ardoise magique… )
@@ -11,7 +11,7 @@ A travers des ateliers artistiques et scientifiques les enfants vont créer comm
 ## Atelier des Artistes
 
 Créer des projets artistiques en s’inspirant d’artiste. Engager de nouveaux moyens d’expression à travers de nouveaux mediums et découvrir de nouvelle façon de les utiliser de la peinture au pistolet de Niki Saint Phalle au photomontage d’Hanna Hoch. 
- 
+
 ## Création livre « Ou suis-je ? »
 
 A travers chaque page, une découverte de plusieurs techniques artistiques. 
