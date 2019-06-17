@@ -3,13 +3,14 @@ body {
  		min-height: 100%;
 }
 
-	.bg {
-		background: url("./images/body.jpg") no-repeat center center fixed;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
+.bg {
+	background: url("./images/body.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
+
 
 a:hover h1 {
 	color: #6EC97C;
@@ -60,7 +61,6 @@ input[type="color"] {
 	background-color: #FFFFFF88;
 	color: #000000;
 	padding: 50px;
-	font-family: "Open Sans";
 }
 
 
@@ -71,6 +71,7 @@ input[type="color"] {
 
 #main h1 {
 	font-size: 2rem;
+	text-align: center;
 }
 
 #main h2 {
@@ -79,6 +80,10 @@ input[type="color"] {
 
 #main h3 {
 	font-size: 1.5rem;
+}
+
+#main h1, #main h2, #main h3 , #main h4 {
+	font-family: "Open Sans";
 }
 
 .postSummary {

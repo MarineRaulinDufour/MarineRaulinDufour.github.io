@@ -24,6 +24,6 @@ Le Stop-motion est une technique d'animation qui donne l’illusion de faire bou
 
 Initiation aux arts du modelage, du moulage et de l’assemblage.
  
-# Découverte des Arts Visuels
+## Découverte des Arts Visuels
 
 A partir d’une histoire et des jeux on découvre comment utiliser différents mediums. (Peinture, encre, fusain…)
